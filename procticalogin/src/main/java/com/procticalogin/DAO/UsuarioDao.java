@@ -26,6 +26,14 @@ public class UsuarioDao {
 			
 			em.getTransaction().commit();
 			
+			
+			for (TbUsuariop datosids:usuario){
+				
+				usu.setIdUsuarios(datosids.getIdUsuarios());
+			
+				
+			}
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			

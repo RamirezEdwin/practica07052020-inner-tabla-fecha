@@ -1,12 +1,19 @@
 package com.procticalogin.control;
 
 import java.io.IOException;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.hibernate.Session;
 
 import com.procticalogin.DAO.UsuarioDao;
+import com.procticalogin.DAO.historialDao;
+import com.procticalogin.model.TbHistorial;
 import com.procticalogin.model.TbUsuariop;
 
 /**
@@ -41,6 +48,23 @@ public class ServeletUser extends HttpServlet {
 		
 		String usu = request.getParameter("usuario");
 		String contra = request.getParameter("contra");
+		String cerrarSeccion = request.getParameter("btncerrar");
+		
+		if (cerrarSeccion!=null) { 	
+			if (cerrarSeccion.equals("CERRAR")) {
+				
+				HttpSession cerrarSeciones = (HttpSession) request.getSession();
+				cerrarSeciones.invalidate();
+				
+				response.sendRedirect("index.jsp");
+				
+				
+			}
+			
+		}else {
+			
+			
+		
 		
 		
 		TbUsuariop usuario = new TbUsuariop();
@@ -54,7 +78,22 @@ public class ServeletUser extends HttpServlet {
 		
 		if (verificarusuario == 1 ) {
 			
-			response.sendRedirect("bienvenido.jsp");
+			TbHistorial histo = new TbHistorial();
+			historialDao histodao = new historialDao();
+			Date fecha = new Date();
+				
+			
+			histo.setFecha(fecha);
+			usuario.setIdUsuarios(usuario.getIdUsuarios());
+			histo.setTbUsuariop(usuario);
+			histodao.agregarDatosHistorial(histo);
+			
+			
+			
+			HttpSession seccion	= request.getSession(true);
+			seccion.setAttribute("usuario", usu);
+			
+			response.sendRedirect("bienvenido.jsp"); 
 			
 		} else {
 			
@@ -62,6 +101,7 @@ public class ServeletUser extends HttpServlet {
 
 		}
 				
+	}
 	}
 
 }

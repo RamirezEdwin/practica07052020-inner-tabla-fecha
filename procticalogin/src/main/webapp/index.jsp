@@ -31,48 +31,55 @@
 
 		form{
 			background:#FFFFFF40;
-			width: 600px;
+			width: 400px;
 			border: 0px solid #4e4d4d;
 			border-radius: 3PX;
 			-MOZ-border-radius: 3PX;
 			-Webkit-border-radius: 3PX;
 			box-shadow: inset 0 0 0px #000;
-			margin: 30px auto;			
+			margin: 30px auto;		
+			align-content: center;	
 		}
 
 		form h2{
             text-align: center;
             color: #fff;
             font-weight: normal;
-            font-size: 40pt;
-            margin: 30px 0px
-            font : 'Pinyon Script', cursive;
-            font-family: 'Spicy Rice', cursive;
+            font-size: 20pt;
+            
+        
+           
             	}
         form p{
             text-align: center;
             color: #fff;
-            font-weight:lighter;
-            font-size: 22pt;
+            font-weight:normal;
+            font-size: 10pt;
             
           
                      
 
 		}
 		
-		form img{
-
-			width: 280px;
-			height: 250px;
-			padding: 0px 10px;
-			color: #160843;
-			align: center;
-			margin: 50px 10px;
-			background-color: #3333340
+		div{
+		align-content: center;
 		
 		}
 		
-		button{
+		form img{
+
+			width: 150px;
+			height: 120px;
+			padding: 0px 10px;
+			color: #160843;
+			align: center;
+			margin: 10px 30px;
+			background-color: #3333340
+		
+		
+		}
+		
+		div.form.button{
 		align: center;
 		
 		}
@@ -90,42 +97,43 @@
 			border: 0px;}
 			
 
+
+
 		
 	</style>
  
  
 </head>
-<body>
-
- <div class="container col-md-8 col-md-offset-3" style="overflow: auto">
- 
-  <form action="ServeletUser" method="post">
+<body background="C:\Users\SACKI\git\proyeclogin\procticalogin\src\main\webapp\wallpaper.jpg">
+ <div class="container col-md-8 col-md-offset-3" style="overflow: auto" >
+   <form action="ServeletUser" method="post">
    <h2>INGRESO DE USUARIO</h2>
    <img align="center" alt="" src="https://cdn.icon-icons.com/icons2/1879/PNG/512/iconfinder-3-avatar-2754579_120516.png">
 
-  <div class="form-group">
->
 
-<p>USUARIO</p>
 <input type="text"
      class="form-control" id="username" placeholder="User Name"
      name="usuario" required>
+     <p>USUARIO</p>
 
-<p>CONTRASEÑA</p>
+
 
 <input type="password"
      class="form-control" id="username" placeholder="User Name"
-     name="contra" required>
+     name="contra" required><p>CONTRASEÑA</p>
+     
+    
+         
+     
+     
 <br>
 <br>
 
 
 <button type="submit" class="btn btn-primary" value="entrar" >INGRESAR</button>
-
+  </form>
 
 </div>
 
-  </form>
- </div>
 </body>
 </html>
